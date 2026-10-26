@@ -93,14 +93,14 @@ export const api = {
   getRegionalAnalysis: (filters?: FilterParams) => request<RegionalAnalysisResponse>(`/regions/analysis${buildQuery(filters)}`),
   getCustomerAnalysis: (filters?: FilterParams) => request<CustomerAnalysisResponse>(`/customers/analysis${buildQuery(filters)}`),
   getLogisticsAnalysis: (filters?: FilterParams) => request<LogisticsAnalysisResponse>(`/logistics/analysis${buildQuery(filters)}`),
-  
+
   getDataPreview: (filters?: FilterParams, page: number = 1, pageSize: number = 20, sortBy?: string, sortOrder?: string, search?: string) =>
     request<DataPreviewResponse>(`/data/preview${buildQuery(filters, { page, page_size: pageSize, sort_by: sortBy, sort_order: sortOrder, search })}`),
-  
+
   getDataQuality: () => request<DataQualityResponse>('/data/quality'),
-  
+
   getExportUrl: (filters?: FilterParams) => `${API_BASE}/data/export${buildQuery(filters)}`,
-  
+
   uploadDataset: async (file: File) => {
     const formData = new FormData();
     formData.append('file', file);

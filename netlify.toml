@@ -8,16 +8,14 @@
 [build.environment]
   NODE_VERSION = "20"
 
-# Redirect API calls to the deployed backend (e.g. on Render/Railway/Fly.io)
-# You can set the BACKEND_URL environment variable in Netlify Site Settings > Environment Variables
+# Reverse Proxy all /api/* calls to your live Render backend
 [[redirects]]
   from = "/api/*"
-  to = "https://sales-intelligence-api.onrender.com/api/:splat"
+  to = "https://sales-intelligence-rflg.onrender.com/api/:splat"
   status = 200
-  force = false
+  force = true
 
-# Single Page Application (SPA) redirect rule:
-# Ensures refreshing or deep linking on pages works without 404s
+# Single Page Application (SPA) redirect rule
 [[redirects]]
   from = "/*"
   to = "/index.html"

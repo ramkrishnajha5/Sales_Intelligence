@@ -67,7 +67,7 @@ export function DataTable<T extends Record<string, any>>({
                   <th
                     key={col.key}
                     onClick={() => col.sortable !== false && handleSort(col.key)}
-                    className={`py-3 px-4 ${
+                    className={`py-3 px-4 whitespace-nowrap ${
                       col.sortable !== false ? 'cursor-pointer hover:bg-slate-100/70 select-none' : ''
                     } ${
                       col.align === 'right' ? 'text-right' : col.align === 'center' ? 'text-center' : 'text-left'
@@ -107,7 +107,7 @@ export function DataTable<T extends Record<string, any>>({
                   {columns.map(col => (
                     <td
                       key={col.key}
-                      className={`py-3 px-4 ${
+                      className={`py-3 px-4 whitespace-nowrap ${
                         col.align === 'right'
                           ? 'text-right'
                           : col.align === 'center'

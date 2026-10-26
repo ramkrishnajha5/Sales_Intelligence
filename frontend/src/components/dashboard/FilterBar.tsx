@@ -74,10 +74,10 @@ export const FilterBar: React.FC<FilterBarProps> = ({
         )}
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 pt-3">
-        {/* Year Pills */}
-        <div className="col-span-2 sm:col-span-3 lg:col-span-2">
-          <label className="block text-[11px] font-medium text-slate-500 mb-1 flex items-center gap-1">
+      <div className="pt-3 space-y-3.5">
+        {/* Year Pills Row */}
+        <div>
+          <label className="block text-[11px] font-medium text-slate-500 mb-1.5 flex items-center gap-1">
             <Calendar className="w-3 h-3 text-slate-400" />
             Order Years
           </label>
@@ -89,10 +89,10 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                   key={year}
                   type="button"
                   onClick={() => handleYearToggle(year)}
-                  className={`text-xs px-2.5 py-1 rounded-md font-medium border transition-colors cursor-pointer ${
+                  className={`text-xs px-3 py-1 rounded-md font-medium border transition-colors cursor-pointer ${
                     active
-                      ? 'bg-blue-600 text-white border-blue-600 shadow-xs'
-                      : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
+                      ? 'bg-blue-600 text-white border-blue-600 shadow-2xs'
+                      : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100 hover:text-slate-900'
                   }`}
                 >
                   {year}
@@ -102,84 +102,87 @@ export const FilterBar: React.FC<FilterBarProps> = ({
           </div>
         </div>
 
-        {/* Region */}
-        <div>
-          <label className="block text-[11px] font-medium text-slate-500 mb-1 flex items-center gap-1">
-            <MapPin className="w-3 h-3 text-slate-400" />
-            Region
-          </label>
-          <select
-            value={filters.regions?.[0] || 'ALL'}
-            onChange={e => handleSelectChange('regions', e.target.value)}
-            className="w-full text-xs bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 text-slate-800 focus:outline-none focus:ring-1 focus:ring-blue-500"
-          >
-            <option value="ALL">All Regions</option>
-            {options.regions.map(r => (
-              <option key={r} value={r}>
-                {r}
-              </option>
-            ))}
-          </select>
-        </div>
+        {/* 4 Categorical Dropdowns in Responsive Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-3.5">
+          {/* Region */}
+          <div>
+            <label className="block text-[11px] font-medium text-slate-500 mb-1 flex items-center gap-1">
+              <MapPin className="w-3 h-3 text-slate-400" />
+              Region
+            </label>
+            <select
+              value={filters.regions?.[0] || 'ALL'}
+              onChange={e => handleSelectChange('regions', e.target.value)}
+              className="w-full text-xs bg-slate-50 hover:bg-slate-100/60 focus:bg-white border border-slate-200 rounded-lg px-2.5 py-2 text-slate-800 transition-colors focus:outline-none focus:ring-1 focus:ring-blue-500 cursor-pointer shadow-2xs"
+            >
+              <option value="ALL">All Regions</option>
+              {options.regions.map(r => (
+                <option key={r} value={r}>
+                  {r}
+                </option>
+              ))}
+            </select>
+          </div>
 
-        {/* Category */}
-        <div>
-          <label className="block text-[11px] font-medium text-slate-500 mb-1 flex items-center gap-1">
-            <Tag className="w-3 h-3 text-slate-400" />
-            Category
-          </label>
-          <select
-            value={filters.categories?.[0] || 'ALL'}
-            onChange={e => handleSelectChange('categories', e.target.value)}
-            className="w-full text-xs bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 text-slate-800 focus:outline-none focus:ring-1 focus:ring-blue-500"
-          >
-            <option value="ALL">All Categories</option>
-            {options.categories.map(c => (
-              <option key={c} value={c}>
-                {c}
-              </option>
-            ))}
-          </select>
-        </div>
+          {/* Category */}
+          <div>
+            <label className="block text-[11px] font-medium text-slate-500 mb-1 flex items-center gap-1">
+              <Tag className="w-3 h-3 text-slate-400" />
+              Category
+            </label>
+            <select
+              value={filters.categories?.[0] || 'ALL'}
+              onChange={e => handleSelectChange('categories', e.target.value)}
+              className="w-full text-xs bg-slate-50 hover:bg-slate-100/60 focus:bg-white border border-slate-200 rounded-lg px-2.5 py-2 text-slate-800 transition-colors focus:outline-none focus:ring-1 focus:ring-blue-500 cursor-pointer shadow-2xs"
+            >
+              <option value="ALL">All Categories</option>
+              {options.categories.map(c => (
+                <option key={c} value={c}>
+                  {c}
+                </option>
+              ))}
+            </select>
+          </div>
 
-        {/* Customer Segment */}
-        <div>
-          <label className="block text-[11px] font-medium text-slate-500 mb-1 flex items-center gap-1">
-            <Users className="w-3 h-3 text-slate-400" />
-            Segment
-          </label>
-          <select
-            value={filters.segments?.[0] || 'ALL'}
-            onChange={e => handleSelectChange('segments', e.target.value)}
-            className="w-full text-xs bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 text-slate-800 focus:outline-none focus:ring-1 focus:ring-blue-500"
-          >
-            <option value="ALL">All Segments</option>
-            {options.segments.map(s => (
-              <option key={s} value={s}>
-                {s}
-              </option>
-            ))}
-          </select>
-        </div>
+          {/* Customer Segment */}
+          <div>
+            <label className="block text-[11px] font-medium text-slate-500 mb-1 flex items-center gap-1">
+              <Users className="w-3 h-3 text-slate-400" />
+              Segment
+            </label>
+            <select
+              value={filters.segments?.[0] || 'ALL'}
+              onChange={e => handleSelectChange('segments', e.target.value)}
+              className="w-full text-xs bg-slate-50 hover:bg-slate-100/60 focus:bg-white border border-slate-200 rounded-lg px-2.5 py-2 text-slate-800 transition-colors focus:outline-none focus:ring-1 focus:ring-blue-500 cursor-pointer shadow-2xs"
+            >
+              <option value="ALL">All Segments</option>
+              {options.segments.map(s => (
+                <option key={s} value={s}>
+                  {s}
+                </option>
+              ))}
+            </select>
+          </div>
 
-        {/* Shipping Mode */}
-        <div>
-          <label className="block text-[11px] font-medium text-slate-500 mb-1 flex items-center gap-1">
-            <Truck className="w-3 h-3 text-slate-400" />
-            Ship Mode
-          </label>
-          <select
-            value={filters.ship_modes?.[0] || 'ALL'}
-            onChange={e => handleSelectChange('ship_modes', e.target.value)}
-            className="w-full text-xs bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 text-slate-800 focus:outline-none focus:ring-1 focus:ring-blue-500"
-          >
-            <option value="ALL">All Modes</option>
-            {options.ship_modes.map(sm => (
-              <option key={sm} value={sm}>
-                {sm}
-              </option>
-            ))}
-          </select>
+          {/* Shipping Mode */}
+          <div>
+            <label className="block text-[11px] font-medium text-slate-500 mb-1 flex items-center gap-1">
+              <Truck className="w-3 h-3 text-slate-400" />
+              Ship Mode
+            </label>
+            <select
+              value={filters.ship_modes?.[0] || 'ALL'}
+              onChange={e => handleSelectChange('ship_modes', e.target.value)}
+              className="w-full text-xs bg-slate-50 hover:bg-slate-100/60 focus:bg-white border border-slate-200 rounded-lg px-2.5 py-2 text-slate-800 transition-colors focus:outline-none focus:ring-1 focus:ring-blue-500 cursor-pointer shadow-2xs"
+            >
+              <option value="ALL">All Modes</option>
+              {options.ship_modes.map(sm => (
+                <option key={sm} value={sm}>
+                  {sm}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
       </div>
     </div>

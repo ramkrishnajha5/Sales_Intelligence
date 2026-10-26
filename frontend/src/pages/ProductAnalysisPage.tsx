@@ -124,7 +124,7 @@ export const ProductAnalysisPage: React.FC<ProductAnalysisPageProps> = ({
           <Layers className="w-4 h-4 text-blue-600" />
           Sub-Category Performance Comparison
         </h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3">
           {sub_category_breakdown.map(sc => (
             <div
               key={sc.sub_category}

@@ -38,6 +38,7 @@ export const AppShell: React.FC<AppShellProps> = ({
   children,
 }) => {
   const [collapsed, setCollapsed] = useState(false);
+  const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
   const dateRangeStr =
     filterOptions?.min_date && filterOptions?.max_date
@@ -49,11 +50,16 @@ export const AppShell: React.FC<AppShellProps> = ({
       {/* Sidebar */}
       <Sidebar
         currentPage={currentPage}
-        onNavigate={onNavigate}
+        onNavigate={page => {
+          onNavigate(page);
+          setMobileSidebarOpen(false);
+        }}
         datasetName={metadata?.filename || 'Sample - Superstore.csv'}
         recordCount={metadata?.row_count || 9994}
         collapsed={collapsed}
         onToggleCollapse={() => setCollapsed(!collapsed)}
+        mobileOpen={mobileSidebarOpen}
+        onCloseMobile={() => setMobileSidebarOpen(false)}
       />
 
       {/* Main Content Area */}
@@ -64,9 +70,10 @@ export const AppShell: React.FC<AppShellProps> = ({
           onExportCsv={onExportCsv}
           onOpenDatasetModal={onOpenDatasetModal}
           dateRangeStr={dateRangeStr}
+          onOpenMobileSidebar={() => setMobileSidebarOpen(true)}
         />
 
-        <main className="flex-1 p-6 max-w-7xl w-full mx-auto">
+        <main className="flex-1 p-4 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto">
           {/* Global Filter Bar is shown on all analytics views except Explorer/DataScience where internal tabs apply */}
           {currentPage !== 'explorer' && currentPage !== 'datascience' && (
             <FilterBar

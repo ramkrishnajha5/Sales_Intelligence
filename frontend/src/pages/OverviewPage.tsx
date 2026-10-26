@@ -35,8 +35,8 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({ data, onResetFilters
 
   return (
     <div className="space-y-6">
-      {/* 6 Core KPIs */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
+      {/* 6 Core KPIs: 3 cards per row, 2 rows (3x2) for superior visibility and clean layout */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
         <KpiCard
           title="Total Sales"
           value={`$${kpis.total_sales.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}

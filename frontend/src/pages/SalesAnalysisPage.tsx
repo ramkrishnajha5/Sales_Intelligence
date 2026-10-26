@@ -62,7 +62,7 @@ export const SalesAnalysisPage: React.FC<SalesAnalysisPageProps> = ({
   return (
     <div className="space-y-6">
       {/* Top Summary Banner */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="bg-white rounded-xl border border-slate-200/80 p-5 shadow-xs">
           <div className="text-xs text-slate-500 font-semibold uppercase">Total Filtered Sales</div>
           <div className="text-2xl font-bold text-slate-900 mt-1">

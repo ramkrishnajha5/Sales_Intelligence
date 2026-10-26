@@ -32,7 +32,7 @@
 
 ## 📌 Project Overview
 
-This project delivers a complete enterprise-grade Data Science and Business Intelligence workflow inspired by the [Asthanishad/Sales-Data-Analysis-Dashboard](https://github.com/Asthanishad/Sales-Data-Analysis-Dashboard) reference architecture, completely re-engineered from monolithic Streamlit scripts into an independent, decoupled full-stack application:
+This project delivers a complete enterprise-grade Data Science and Business Intelligence workflow from monolithic Streamlit scripts into an independent, decoupled full-stack application:
 
 * **Frontend:** High-performance React 19 Single Page Application (SPA) in strict TypeScript with Tailwind CSS 4 and Recharts.
 * **Backend:** Asynchronous Python FastAPI engine performing vectorized Pandas/NumPy aggregations and SciPy statistical calculations.
@@ -295,7 +295,6 @@ Covers:
 
 ## 👥 Author & Attribution
 
-* **Author:** Ramkrishna Jha
+* **Author:** Ramkrishna Jha, Trayank Sahu, Pallaw Dhilliwar
 * **GitHub:** [@ramkrishnajha5](https://github.com/ramkrishnajha5)
 * **Repository:** [ramkrishnajha5/Sales_Intelligence](https://github.com/ramkrishnajha5/Sales_Intelligence)
-* **Reference Attribution:** Inspired by [Asthanishad/Sales-Data-Analysis-Dashboard](https://github.com/Asthanishad/Sales-Data-Analysis-Dashboard) and the Tableau Sample Superstore benchmark.

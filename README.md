@@ -1,4 +1,12 @@
-# 📊 Sales Intelligence — Data Analytics & Machine Learning Dashboard
+# 📊 Sales Intelligence System
+
+A project for the MCA 3rd Semester Python subject — 'Data Science using Python' (CAPCTD3) — covering **all five units** of the syllabus, built on the Superstore multi-year retail transactions dataset. It takes a raw transactional CSV through cleaning, preprocessing, exploratory analysis and inference, interactive visualization, and a trained machine learning forecasting model deployed as a production full-stack web application.
+
+## Team
+
+- [Ram Krishna Jha](https://github.com/ramkrishnajha5) — [@ramkrishnajha5](https://github.com/ramkrishnajha5)
+- [Trayank Sahu](https://github.com/trayanks28) — [@trayanks28](https://github.com/trayanks28)
+- Pallaw Dilliwar
 
 <div align="center">
 
@@ -12,21 +20,25 @@
 ![Netlify](https://img.shields.io/badge/Frontend-Netlify%20Live-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
 ![Render](https://img.shields.io/badge/Backend-Render%20Live-46E3B7?style=for-the-badge&logo=render&logoColor=white)
 
-<br/>
-
 ### 🌐 Live Production Deployment
 
 [![Live Frontend App](https://img.shields.io/badge/🖥️_Live_Dashboard-Netlify-00C7B7?style=for-the-badge)](https://salesintelligenceggv.netlify.app/)
 [![Live FastAPI Backend](https://img.shields.io/badge/⚡_Live_API-Render-46E3B7?style=for-the-badge)](https://sales-intelligence-rflg.onrender.com)
 [![Interactive Swagger Docs](https://img.shields.io/badge/📖_Swagger_Docs-FastAPI-009688?style=for-the-badge)](https://sales-intelligence-rflg.onrender.com/docs)
 
-<p align="center">
-  <b>An end-to-end full-stack retail intelligence dashboard and machine learning analytics platform.</b><br>
-  Built with <b>React 19, TypeScript, Tailwind CSS, Recharts, FastAPI, Pandas, NumPy, and scikit-learn</b>.<br>
-  Analyzes multi-year retail transactions to uncover revenue drivers, regional margins, loss leakage, and chronological demand forecasts.
-</p>
-
 </div>
+
+---
+
+## 📚 Syllabus Mapping
+
+| Unit | What the project does | Where |
+|---|---|---|
+| **Unit I — Python, NumPy, Pandas** | Multi-encoding CSV loading (`utf-8`, `windows-1252`, `latin1`), shape/dtypes/null checks, vectorized aggregations with NumPy & Pandas, `.loc`/`.iloc` slicing, multi-index grouping for 6 core business KPIs | `backend/app/services/data_loader.py`, `backend/app/services/analytics.py` |
+| **Unit II — Preprocessing** | Schema validation across 21 columns, ISO datetime conversions, feature engineering (`Order Processing Days`, `YearMonth`, `Quarter`, `Row Profit Margin`), Tukey's IQR rule outlier detection ($[Q1 - 1.5 \times \text{IQR}, Q3 + 1.5 \times \text{IQR}]$) | `backend/app/services/preprocessing.py`, `notebooks/Sales_Data_Analysis.ipynb` |
+| **Unit III — Stats & Inference** | Descriptive statistics (mean, median, standard deviation, quartiles), Pearson correlation matrix, shipping latency analysis, hypothesis verification on discount sensitivity vs profitability collapse | `backend/app/services/statistics.py`, `backend/app/services/analytics.py` |
+| **Unit IV — Visualization** | Interactive web dashboards in React 19 + Recharts 3 (Area, Line, Bar, Scatter, and Pie/Donut charts) with dynamic filtering and tablet-responsive layout + Matplotlib and Seaborn subplots in Jupyter Notebook | `frontend/src/components/charts/`, `notebooks/Sales_Data_Analysis.ipynb` |
+| **Unit V — Machine Learning & Forecasting** | Chronological train/test split (zero data leakage), autoregressive lag feature engineering (Lag-1, Lag-2), trend & sinusoidal seasonality components, regularized Ridge Regression ($L_2$ penalty), out-of-sample RMSE and MAE evaluation against Naive persistence baseline | `backend/app/services/forecasting.py`, `backend/app/api/routes/data_science.py` |
 
 ---
 
@@ -293,8 +305,12 @@ Covers:
 
 ---
 
-## 👥 Author & Attribution
+## 👥 Team & Attribution
 
-* **Author:** Ramkrishna Jha, Trayank Sahu, Pallaw Dhilliwar
-* **GitHub:** [@ramkrishnajha5](https://github.com/ramkrishnajha5)
-* **Repository:** [ramkrishnajha5/Sales_Intelligence](https://github.com/ramkrishnajha5/Sales_Intelligence)
+- [Ram Krishna Jha](https://github.com/ramkrishnajha5) — [@ramkrishnajha5](https://github.com/ramkrishnajha5)
+- [Trayank Sahu](https://github.com/trayanks28) — [@trayanks28](https://github.com/trayanks28)
+- Pallaw Dilliwar
+
+* **Project Repository:** [ramkrishnajha5/Sales_Intelligence](https://github.com/ramkrishnajha5/Sales_Intelligence)
+* **Subject:** MCA 3rd Semester — 'Data Science using Python' (CAPCTD3)
+* **Academic Institution:** Guru Ghasidas Vishwavidyalaya (GGV)
